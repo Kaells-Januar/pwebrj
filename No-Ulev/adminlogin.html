@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apello Restaurant Admin Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="background">
+      <div class="side-image">
+        <div class="logo-container">
+          <div class="logo"><img src="apello.svg" alt=""></div>
+          <div class="tagline">Restaurant Management System</div>
+        </div>
+      </div>
+      <div class="forms-container">
+        <!-- JEUNG LOGIN-->
+        <div class="form-content">
+          <div class="form login-form active" id="login-form">
+            <h2 class="form-title">Admin Login</h2>
+            <form action="#" method="post">
+              <div class="input-field">
+               
+                <input type="email" id="login-email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-field">
+               
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+              </div>
+              <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn">Login</button>
+              <div class="toggle-form">
+                Don't have an account? <a href="#" id="register-toggle">Register Now</a>
+              </div>
+            </form>
+          </div>
+          
+          <!-- DAFTAR -->
+          <div class="form register-form" id="register-form">
+            <h3 class="form-title">Create Account</h3>
+            <form action="#" method="post">
+              <div class="input-field">
+                
+                <input type="text" id="register-name" placeholder="Enter your full name" required>
+              </div>
+              <div class="input-field">
+                
+                <input type="email" id="register-email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-field">
+               
+                <input type="password" id="register-password" placeholder="Create a password" required>
+              </div>
+              <div class="input-field">
+                
+                <input type="password" id="register-confirm-password" placeholder="Confirm your password" required>
+              </div>
+              <button type="submit" class="btn">Register</button>
+              <div class="toggle-form">
+                Already have an account? <a href="#" id="login-toggle">Login</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    :root {
+      --primary: #9cf8c5;
+      --primary-light: #a0f0c9;
+      --primary-dark: #0aa04e;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --dark-gray: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 80% 10%, rgba(14, 203, 99, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 20% 80%, rgba(14, 203, 99, 0.15) 0%, transparent 25%);
+      overflow-x: hidden;
+    }
+    
+    .container {
+      position: relative;
+      width: 800px;
+      height: 500px;
+      margin: 20px;
+    }
+    
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      display: flex;
+      overflow: hidden;
+    }
+    
+    .side-image {
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: rgb(63, 63, 63);
+      position: relative;
+    }
+    
+    .side-image::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+      top: -25%;
+      left: -25%;
+    }
+    
+    .logo-container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    
+    .tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    .forms-container {
+      width: 60%;
+      padding: 40px;
+      position: relative;
+    }
+    
+    .form-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .form-title {
+      font-size: 1.8rem;
+      color: var(--dark-gray);
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+    
+    .input-field {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    
+    .input-field input {
+      width: 100%;
+      padding: 12px 15px;
+      background-color: var(--light-gray);
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--dark-gray);
+      transition: all 0.3s ease;
+    }
+    
+    .input-field input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    
+    .input-field label {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background-color: var(--white);
+      padding: 0 5px;
+      font-size: 12px;
+      color: var(--primary);
+      border-radius: 4px;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    
+    .forgot-password a {
+      color: var(--primary);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .forgot-password a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(14, 203, 99, 0.3);
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(14, 203, 99, 0.4);
+    }
+    
+    .toggle-form {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--dark-gray);
+    }
+    
+    .toggle-form a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .toggle-form a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .form {
+      display: none;
+      animation: fadeIn 0.5s forwards;
+    }
+    
+    .form.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+        height: auto;
+      }
+      
+      .background {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .side-image {
+        width: 100%;
+        height: 160px;
+        padding: 20px 0;
+      }
+      
+      .forms-container {
+        width: 100%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const registerToggle = document.getElementById('register-toggle');
+      const loginToggle = document.getElementById('login-toggle');
+      
+      registerToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginForm.classList.remove('active');
+        registerForm.classList.add('active');
+      });
+      
+      loginToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        registerForm.classList.remove('active');
+        loginForm.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

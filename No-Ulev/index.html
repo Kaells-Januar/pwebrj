@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input table</title>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <!-- Table Number Input Section -->
+  <section id="table-input-section" class="table-input-section">
+    <div class="welcome-box">
+        <div class="welcome-logo">
+            <img src="apello.svg" alt="Welcome Logo" style="width: 100%; height: 100%; border-radius: 50%;">
+        </div>
+        <h1>Selamat Datang di Apello</h1>
+        <p>Kami menghadirkan pengalaman kuliner modern dengan cita rasa autentik</p>
+        <form class="table-form" id="tableForm">
+            <input type="number" id="tableNumber" placeholder="Masukkan Nomor Meja Anda" required>
+            <button type="submit">Mulai Memesan</button>
+        </form>
+    </div>
+</section>
+
+<!-- Main Content (Hidden Until Table Number is Entered) -->
+<div id="main-content" class="hidden">
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><img src="apello.svg" alt=""></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#how-to-order">Cara Pesan</a></li>
+                    <li><a href="#chefs">Chef Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1><strong>Makanan lezat</strong><br>hanya di <span class="highlight">Apello</span></h1>
+            <p>Temukan dan pesan hidangan favoritmu dengan cepat, praktis, dan nyaman langsung dari meja kamu</p>
+            <a href="#menu" class="cta-button">Pesan Sekarang</a>
+        </div>
+        <div class="hero-image">
+            <div class="shape-bg"></div>
+            <img src="nasgor-removebg-preview.png" alt="Nasi Goreng" />
+        </div>
+    </div>
+</section>
+
+
+    <!-- Hero Background Image -->
+    
+       
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="apello">Tentang <span>Apello</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="./abut.svg" alt="Savoria Restaurant Interior">
+                </div>
+                <div class="about-text">
+                    <h3>Pengalaman Kuliner Modern</h3>
+                    <p>Apello Restaurant adalah restoran modern yang menggabungkan cita rasa lokal dengan teknik memasak internasional. Kami berkomitmen untuk menyajikan hidangan berkualitas tinggi dengan bahan-bahan segar dan lokal.</p>
+                    <p>Didirikan pada tahun 2018, Apello telah menjadi destinasi kuliner favorit bagi para pecinta makanan. Interior kami yang elegan dan nyaman menciptakan suasana yang sempurna untuk makan siang santai, makan malam romantis, atau pertemuan bisnis.</p>
+                    <p>Kami percaya bahwa makanan terbaik berasal dari bahan-bahan terbaik. Itulah mengapa kami bekerja sama dengan petani dan produsen lokal untuk memastikan bahan-bahan kami selalu segar dan berkualitas tinggi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How to Order Section -->
+    <section id="how-to-order" class="how-to-order">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cara Pesan</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Scan QR Code</h3>
+                    <p>Scan QR code yang tersedia di meja Anda untuk mengakses menu digital kami</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Pilih Menu</h3>
+                    <p>Pilih menu yang Anda inginkan dan tambahkan ke keranjang pesanan</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Kirim Pesanan</h3>
+                    <p>Tinjau pesanan Anda dan kirim ke dapur kami</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Nikmati Hidangan</h3>
+                    <p>Tunggu sebentar dan nikmati hidangan lezat yang akan diantarkan ke meja Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Kami</h2>
+            </div>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Semua</button>
+                <button class="category-btn" data-category="makanan">Makanan</button>
+                <button class="category-btn" data-category="minuman">Minuman</button>
+                <button class="category-btn" data-category="camilan">Camilan</button>
+            </div>
+            <div class="menu-items">
+                <!-- Menu items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chef Section -->
+    <section id="chefs" class="chef-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Chef Kami</h2>
+            </div>
+            <div class="chefs">
+                <div class="chef">
+                    <div class="chef-img">
+                        <img src="tung.png" alt="Chef Anton">
+                    </div>
+                    <h3>Tung Tung Sahur</h3>
+                    <p>Executive Chef</p>
+                </div>
+                <div class="chef">
+                    <div class="chef-img">
+                        <img src="ballerina.jpg" alt="Chef Sari">
+                    </div>
+                    <h3>Balerina Cappucina</h3>
+                    <p>Pastry Chef</p>
+                </div>
+                <div class="chef">
+                    <div class="chef-img">
+                        <img src="assasino.jpg" alt="Chef Budi">
+                    </div>
+                    <h3>Assasino Cappucino</h3>
+                    <p>Sous Chef</p>
+                </div>
+                <div class="chef">
+                    <div class="chef-img">
+                        <img src="larili.png" alt="Chef Maya">
+                    </div>
+                    <h3>Larili Larila</h3>
+                    <p>Head Chef</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Kaki gajah-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <div class="footer-logo"><img src="apello.svg" alt=""></div>
+                    <p>Apello menawarkan pengalaman kuliner modern dengan hidangan lezat, suasana yang nyaman, dan pelayanan yang ramah.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <ul class="footer-links">
+                        <li>Senin - Jumat: 10:00 - 22:00</li>
+                        <li>Sabtu - Minggu: 11:00 - 23:00</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="active">Beranda</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#chefs">Chef Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Kontak</h3>
+                    <div><i class="icon-location"></i> Jl. Baciprut, Jakarta</div>
+                    <div><i class="icon-phone"></i> +62 345 678</div>
+                    <div><i class="icon-email"></i> info@apello.com</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025a Apello Restaurant. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Cart -->
+    <div id="cart" class="cart">
+        <div class="cart-info">
+            Total <span id="cart-count">0</span> item | <span class="cart-total" id="cart-total">Rp 0</span>
+        </div>
+        <button id="checkout-btn" class="cart-button">Pesan Sekarang</button>
+    </div>
+</div>
+
+<!-- Order Confirmation (Hidden Until Order is Placed) -->
+<div id="order-confirmation" class="order-confirmation hidden">
+    <div class="confirmation-box">
+        <div class="confirmation-icon">✓</div>
+        <h2>Pesanan Diterima!</h2>
+        <p>Terima kasih atas pesanan Anda. Pesanan Anda sedang diproses dan akan segera diantarkan ke meja <span id="confirmation-table-number"></span>.</p>
+        <button id="back-to-menu" class="back-btn">Kembali ke Menu</button>
+    </div>
+</div>
+
+</body>
+
+</html>
+
+<style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a.active,
+        .nav-links a:hover {
+        color: #00c853;
+        }
+    
+        
+        /* Table Number Input Section */
+        .table-input-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .welcome-box h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .welcome-logo {
+            width: 200px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .table-form {
+            margin-top: 30px;
+        }
+        
+        .table-form input {
+            padding: 15px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .table-form button {
+            padding: 15px 30px;
+            background-color: #0ecb63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .table-form button:hover {
+            background-color: #1e8d4e;
+        }
+        
+        /* Hero Section */
+        /* Hero Section */
+.hero {
+    padding: 60px 0;
+    background-color: #f9f9fb;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    color: #1c1c1c;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero-text .highlight {
+    color: #0ecb63;
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0ecb63;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0aa94e;
+}
+
+.hero-image {
+    flex: 1;
+    width: 700px;
+    height: auto;
+    min-width: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+
+.hero-image img {
+    width: 400px;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .apello span {
+            color: #0ecb63;
+            
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        body, * {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: #0ecb63;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+       
+        
+        .about-img img {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            margin: 0 10px;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .category-btn.active {
+            background-color: #0ecb63;
+            color: white;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-info {
+            padding: 20px;
+        }
+        
+        .menu-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .menu-info p {
+            color: #666;
+            margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .menu-price-cart {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0ecb63;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: #f5f5f5;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .quantity {
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        
+        /* Chef Section */
+        .chef-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .chefs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .chef {
+            text-align: center;
+        }
+        
+        .chef-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chef-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .chef h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .chef p {
+            color: #666;
+        }
+        
+        /* How to Order Section */
+        .how-to-order {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #0ecb63;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: #0ecb63;
+        }
+        
+        .footer-about p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #0ecb63;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #0ecb63;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Cart */
+        .cart {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .cart.active {
+            transform: translateY(0);
+        }
+        
+        .cart-info {
+            font-size: 16px;
+        }
+        
+        .cart-total {
+            font-weight: 600;
+            color: #0ecb63;
+        }
+        
+        .cart-button {
+            padding: 10px 25px;
+            background-color: #0ecb63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cart-button:hover {
+            background-color: #187441;
+        }
+        
+        /* Order Confirmation */
+        .order-confirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        
+        .confirmation-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .confirmation-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 40px;
+        }
+        
+        .confirmation-box h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .confirmation-box p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .back-btn {
+            padding: 12px 30px;
+            background-color: #0ecb63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #2ecc71;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .menu-categories {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .category-btn {
+                margin: 0;
+            }
+        }
+</style>
+
+<script>
+    // Menu Items Data
+    const menuItems = [
+            {
+                id: 1,
+                name: 'Nasi Goreng Spesial',
+                description: 'Nasi goreng dengan telur, ayam, udang, dan sayuran segar',
+                price: 55000,
+                image: './carbonara.jpg',
+                category: 'makanan'
+            },
+            {
+                id: 2,
+                name: 'Spaghetti Carbonara',
+                description: 'Pasta dengan saus krim, telur, keju parmesan, dan daging asap',
+                price: 65000,
+                image: './carbonara.jpg',
+                category: 'makanan'
+            },
+            {
+                id: 3,
+                name: 'Beef Burger',
+                description: 'Burger dengan daging sapi premium, keju, selada, dan saus spesial',
+                price: 70000,
+                image: './carbonara.jpg',
+                category: 'makanan'
+            },
+            {
+                id: 4,
+                name: 'Caesar Salad',
+                description: 'Salad dengan selada romaine, crouton, keju parmesan, dan saus caesar',
+                price: 45000,
+                image: './carbonara.jpg',
+                category: 'makanan'
+            },
+            {
+                id: 5,
+                name: 'Tropical Smoothie',
+                description: 'Smoothie segar dengan campuran buah tropis dan yogurt',
+                price: 35000,
+                image: './Smoothie.png',
+                category: 'minuman'
+            },
+            {
+                id: 6,
+                name: 'Espresso',
+                description: 'Kopi espresso premium dengan crema yang kaya',
+                price: 25000,
+                image: './Smoothie.png',
+                category: 'minuman'
+            },
+            {
+                id: 7,
+                name: 'Fresh Orange Juice',
+                description: 'Jus jeruk segar tanpa tambahan gula',
+                price: 30000,
+                image: './Smoothie.png',
+                category: 'minuman'
+            },
+            {
+                id: 8,
+                name: 'Lychee Tea',
+                description: 'Teh dengan sirup leci dan potongan buah leci segar',
+                price: 28000,
+                image: './Smoothie.png',
+                category: 'minuman'
+            },
+            {
+                id: 9,
+                name: 'French Fries',
+                description: 'Kentang goreng renyah dengan bumbu rahasia',
+                price: 30000,
+                image: './kentang.jpg',
+                category: 'camilan'
+            },
+            {
+                id: 10,
+                name: 'Cheese Nachos',
+                description: 'Nachos dengan saus keju leleh dan salsa segar',
+                price: 40000,
+                image: './kentang.jpg',
+                category: 'camilan'
+            },
+            {
+                id: 11,
+                name: 'Calamari Rings',
+                description: 'Cincin cumi goreng dengan saus tartar',
+                price: 45000,
+                image: './kentang.jpg',
+                category: 'camilan'
+            },
+            {
+                id: 12,
+                name: 'Mozzarella Sticks',
+                description: 'Stik keju mozzarella dibalut tepung roti dan digoreng',
+                price: 38000,
+                image: './kentang.jpg',
+                category: 'camilan'
+            }
+        ];
+        
+        // Shopping Cart
+        let cart = [];
+        let tableNumber = '';
+        
+        // DOM Elements
+        const tableInputSection = document.getElementById('table-input-section');
+        const mainContent = document.getElementById('main-content');
+        const tableForm = document.getElementById('tableForm');
+        const menuItemsContainer = document.querySelector('.menu-items');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const cartElement = document.getElementById('cart');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartTotalElement = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const orderConfirmation = document.getElementById('order-confirmation');
+        const confirmationTableNumber = document.getElementById('confirmation-table-number');
+        const backToMenuBtn = document.getElementById('back-to-menu');
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        
+        // Handle Table Number Form Submission
+        tableForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const tableNumberInput = document.getElementById('tableNumber');
+            tableNumber = tableNumberInput.value;
+            
+            console.log("Form submitted with table number:", tableNumber);
+            
+            if (tableNumber) {
+                // Sembunyikan form input meja
+                tableInputSection.classList.add('hidden');
+                // Tampilkan konten utama
+                mainContent.classList.remove('hidden');
+                // Render menu items
+                renderMenuItems('all');
+                // Update cart
+                updateCart();
+                
+                // Log untuk debugging
+                console.log("Main content should be visible now");
+            }
+        });
+        
+        // Tambahan: binding langsung ke tombol jika form event gagal
+        document.querySelector('.table-form button').addEventListener('click', function() {
+            const tableNumberInput = document.getElementById('tableNumber');
+            tableNumber = tableNumberInput.value;
+            
+            if (tableNumber) {
+                // Sembunyikan form input meja
+                tableInputSection.classList.add('hidden');
+                // Tampilkan konten utama
+                mainContent.classList.remove('hidden');
+                // Render menu items
+                renderMenuItems('all');
+                // Update cart
+                updateCart();
+            }
+        });
+        
+        // Render Menu Items
+        function renderMenuItems(category) {
+            menuItemsContainer.innerHTML = '';
+            
+            const filteredItems = category === 'all' 
+                ? menuItems 
+                : menuItems.filter(item => item.category === category);
+            
+            filteredItems.forEach(item => {
+                const itemInCart = cart.find(cartItem => cartItem.id === item.id);
+                const quantity = itemInCart ? itemInCart.quantity : 0;
+                
+                const menuItemElement = document.createElement('div');
+                menuItemElement.className = 'menu-item';
+                menuItemElement.innerHTML = `
+                    <div class="menu-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="menu-info">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="menu-price-cart">
+                            <div class="menu-price">${formatCurrency(item.price)}</div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="quantity" data-id="${item.id}">${quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                menuItemsContainer.appendChild(menuItemElement);
+            });
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updateQuantity(parseInt(btn.dataset.id), -1);
+                });
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updateQuantity(parseInt(btn.dataset.id), 1);
+                });
+            });
+        }
+        
+        // Update Item Quantity
+        function updateQuantity(itemId, change) {
+            const item = menuItems.find(menuItem => menuItem.id === itemId);
+            if (!item) return;
+            
+            const existingItemIndex = cart.findIndex(cartItem => cartItem.id === itemId);
+            
+            if (existingItemIndex >= 0) {
+                const newQuantity = cart[existingItemIndex].quantity + change;
+                
+                if (newQuantity <= 0) {
+                    cart.splice(existingItemIndex, 1);
+                } else {
+                    cart[existingItemIndex].quantity = newQuantity;
+                }
+            } else if (change > 0) {
+                cart.push({
+                    id: itemId,
+                    name: item.name,
+                    price: item.price,
+                    quantity: 1
+                });
+            }
+            
+            // Update quantity display
+            const quantityElements = document.querySelectorAll(`.quantity[data-id="${itemId}"]`);
+            const itemInCart = cart.find(cartItem => cartItem.id === itemId);
+            const quantity = itemInCart ? itemInCart.quantity : 0;
+            
+            quantityElements.forEach(element => {
+                element.textContent = quantity;
+            });
+            
+            updateCart();
+        }
+        
+        // Update Cart Display
+        function updateCart() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            
+            cartCountElement.textContent = totalItems;
+            cartTotalElement.textContent = formatCurrency(totalPrice);
+            
+            if (totalItems > 0) {
+                cartElement.classList.add('active');
+            } else {
+                cartElement.classList.remove('active');
+            }
+        }
+        
+        // Switch Menu Categories
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                renderMenuItems(button.dataset.category);
+            });
+        });
+        
+        // Checkout Process
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length > 0) {
+                confirmationTableNumber.textContent = tableNumber;
+                orderConfirmation.classList.remove('hidden');
+            }
+        });
+        
+        // Back to Menu Button
+        backToMenuBtn.addEventListener('click', () => {
+            orderConfirmation.classList.add('hidden');
+            cart = [];
+            updateCart();
+            renderMenuItems('all');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+</script>
