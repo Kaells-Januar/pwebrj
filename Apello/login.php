@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "koneksi.php";
+include "includes/koneksi.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -339,7 +339,7 @@ include "koneksi.php";
             $data = mysqli_fetch_array($query);
             $_SESSION['user'] = $data;
             echo '<script>alert("selamat datang, '.$data['nama']. '");
-            location.href="index.php"; </script>';
+            location.href="admin.php"; </script>';
 
         }else{
 
