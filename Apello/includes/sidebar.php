@@ -1,28 +1,90 @@
+<?php
+include 'auth.php'; // Cek autentikasi dan ambil level user
+?>
 <div class="sidebar">
     <!-- Sidebar Header -->
     <div class="sidebar-header">
         <div class="sidebar-title">
             <i class="fas fa-tachometer-alt"></i>
-            Dashboard Admin
+            Dashboard <?= ucfirst($level) ?> <!-- Tampilkan level user di sidebar -->
         </div>
     </div>
     <!-- Sidebar Navigation -->
     <nav class="sidebar-nav">
+        <!-- Menu Dashboard: semua level -->
         <div class="nav-item">
-            <a href="admin.php" class="nav-link<?=basename($_SERVER['PHP_SELF'])=='admin.php'?' active':''?>">
+            <a href="/Apello/Apello/admin.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'admin.php' ? ' active' : '' ?>">
                 <span class="nav-icon"><i class="fas fa-home"></i></span>
                 <span>Dashboard</span>
             </a>
         </div>
+
+        <!-- Menu Kelola User: hanya administrator -->
+        <?php if (isset($level) && $level === 'administrator'): ?>
         <div class="nav-item">
-            <a href="orders_new.php" class="nav-link<?=basename($_SERVER['PHP_SELF'])=='orders_new.php'?' active':''?>">
-                <span class="nav-icon"><i class="fas fa-shopping-cart"></i></span>
-                <span>Pesanan</span>
+            <a href="/Apello/Apello/user/kelola_user.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'kelola_user.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                <span>Kelola User</span>
             </a>
         </div>
+        <?php endif; ?>
+
+        <!-- Menu Kelola Menu: hanya administrator -->
+        <?php if (isset($level) && ($level === 'administrator')): ?>
+        <div class="nav-item">
+            <a href="/Apello/Apello/menu/kelola_menu.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'kelola_menu.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-utensils"></i></span>
+                <span>Kelola Menu</span>
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <!-- Menu Order: hanya administrator -->
+        <?php if (isset($level) && ($level === 'administrator')): ?>
+        <div class="nav-item">
+            <a href="/Apello/Apello/order/order.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'order.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-receipt"></i></span>
+                <span>Order</span>
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <!-- Menu Order: khusus waiter & pelanggan -->
+        <?php if (isset($level) && ( $level === 'waiter' || $level === 'pelanggan')): ?>
+        <div class="nav-item">
+            <a href="/Apello/Apello/order/entry.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'entry.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-receipt"></i></span>
+                <span>Order</span>
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <!-- Menu Bayar: administrator & kasir -->
+        <?php if (isset($level) && ($level === 'administrator' || $level === 'kasir')): ?>
+        <div class="nav-item">
+            <a href="/Apello/Apello/bayar/bayar.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'bayar.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                <span>Bayar</span>
+            </a>
+        </div>
+        <?php endif; ?>
+
+        <!-- Menu Riwayat Transaksi: administrator, owner, kasir, waiter -->
+        <?php if (isset($level) && ($level === 'administrator' || $level === 'owner' || $level === 'kasir' || $level === 'waiter')): ?>
+        <div class="nav-item">
+            <a href="/Apello/Apello/REPORT/riwayat.php" class="nav-link<?= basename($_SERVER['PHP_SELF']) == 'riwayat.php' ? ' active' : '' ?>">
+                <span class="nav-icon"><i class="fas fa-history"></i></span>
+                <span>Riwayat Transaksi</span>
+            </a>
+        </div>
+        <?php endif; ?>
     </nav>
 </div>
 
+<?php
+// Blok debug session (sudah dihapus, tidak aktif)
+// Fungsinya dulu untuk menampilkan isi session dan level user di tengah layar saat debug
+?>
 
 <style>
 .sidebar {

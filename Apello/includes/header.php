@@ -1,6 +1,32 @@
-<?php
-// navbar.php - Pure Navbar Component
-?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<nav class="navbar">
+    <!-- Brand Logo -->
+    <a href="dashboard.php" class="navbar-brand">
+        <div class="brand-icon">
+            <i class="fas fa-utensils"></i>
+        </div>
+        <span>Apello</span>
+    </a>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Navbar Actions -->
+    <div class="navbar-actions">
+        <!-- Hanya tombol logout -->
+        <a href="/Apello/Apello/logout.php" class="dropdown-item logout" style="display:flex;align-items:center;gap:10px;font-weight:600;color:#d32f2f;padding:12px 18px;border-radius:16px;text-decoration:none;" onclick="return confirm('Yakin ingin keluar?')">
+            <span class="dropdown-icon">
+                <i class="fas fa-sign-out-alt"></i>
+            </span>
+            <span>Keluar</span>
+        </a>
+    </div>
+</nav>
+
 <style>
     * {
         margin: 0;
@@ -104,247 +130,17 @@
         gap: 1.5rem;
     }
     
-    .search-box {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-    
-    .search-input {
-        background: rgba(129, 199, 132, 0.08);
-        border: 2px solid rgba(129, 199, 132, 0.15);
-        border-radius: 25px;
-        padding: 14px 50px 14px 20px;
-        color: #2e7d32;
-        font-size: 0.95rem;
-        width: 320px;
-        font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 
-            0 2px 10px rgba(129, 199, 132, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-    
-    .search-input::placeholder {
-        color: rgba(46, 125, 50, 0.6);
-        font-weight: 400;
-    }
-    
-    .search-input:focus {
-        outline: none;
-        background: rgba(129, 199, 132, 0.12);
-        border-color: rgba(129, 199, 132, 0.3);
-        width: 380px;
-        box-shadow: 
-            0 4px 20px rgba(129, 199, 132, 0.2),
-            0 0 0 4px rgba(129, 199, 132, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        transform: translateY(-2px);
-    }
-    
-    .search-btn {
-        position: absolute;
-        right: 16px;
-        background: none;
-        border: none;
-        color: rgba(46, 125, 50, 0.7);
-        cursor: pointer;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-    }
-    
-    .search-btn:hover {
-        color: #2e7d32;
-        transform: scale(1.1);
-    }
-    
-    .notification-btn {
-        position: relative;
-        background: rgba(129, 199, 132, 0.08);
-        border: 2px solid rgba(129, 199, 132, 0.15);
-        border-radius: 16px;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #2e7d32;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 
-            0 2px 10px rgba(129, 199, 132, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-    
-    .notification-btn:hover {
-        background: rgba(129, 199, 132, 0.15);
-        border-color: rgba(129, 199, 132, 0.25);
-        transform: translateY(-3px);
-        box-shadow: 
-            0 6px 25px rgba(129, 199, 132, 0.25),
-            0 12px 50px rgba(76, 175, 80, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    }
-    
-    .notification-badge {
-        position: absolute;
-        top: -6px;
-        right: -6px;
-        background: linear-gradient(135deg, #ff5722, #f44336);
-        color: white;
-        border-radius: 50%;
-        width: 22px;
-        height: 22px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 3px solid white;
-        box-shadow: 0 2px 10px rgba(244, 67, 54, 0.4);
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-    
-    .user-menu {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        background: rgba(129, 199, 132, 0.08);
-        border: 2px solid rgba(129, 199, 132, 0.15);
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 
-            0 2px 10px rgba(129, 199, 132, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-    
-    .user-menu:hover {
-        background: rgba(129, 199, 132, 0.15);
-        border-color: rgba(129, 199, 132, 0.25);
-        transform: translateY(-3px);
-        box-shadow: 
-            0 6px 25px rgba(129, 199, 132, 0.25),
-            0 12px 50px rgba(76, 175, 80, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    }
-    
-    .user-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #4caf50, #2e7d32);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 700;
-        font-size: 1rem;
-        box-shadow: 
-            0 3px 15px rgba(76, 175, 80, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    }
-    
-    .user-info {
-        display: flex;
-        flex-direction: column;
-        color: #2e7d32;
-    }
-    
-    .user-name {
-        font-size: 0.95rem;
-        font-weight: 700;
-        line-height: 1.3;
-    }
-    
-    .user-role {
-        font-size: 0.8rem;
-        opacity: 0.7;
-        line-height: 1.3;
-        font-weight: 500;
-    }
-    
-    .dropdown-arrow {
-        color: rgba(46, 125, 50, 0.6);
-        font-size: 0.9rem;
-        margin-left: 8px;
-        transition: transform 0.3s ease;
-    }
-    
-    .user-menu:hover .dropdown-arrow {
-        transform: rotate(180deg);
-    }
-    
-    /* User Dropdown Menu */
-    .user-dropdown {
-        position: absolute;
-        top: calc(100% + 15px);
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        min-width: 220px;
-        box-shadow: 
-            0 10px 40px rgba(129, 199, 132, 0.2),
-            0 20px 80px rgba(76, 175, 80, 0.1),
-            0 1px 0 rgba(255, 255, 255, 0.9);
-        border: 2px solid rgba(129, 199, 132, 0.1);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1001;
-    }
-    
-    .user-menu.active .user-dropdown {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-    
-    .dropdown-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 16px 20px;
-        color: #2e7d32;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        border-radius: 16px;
-        margin: 8px;
-    }
-    
-    .dropdown-item:hover {
-        background: rgba(129, 199, 132, 0.1);
-        transform: translateX(4px);
-    }
-    
     .dropdown-item.logout {
         color: #d32f2f;
-        border-top: 1px solid rgba(129, 199, 132, 0.1);
-        margin-top: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        background: rgba(211, 47, 47, 0.08);
+        border: 2px solid rgba(211, 47, 47, 0.12);
+        transition: background 0.2s, color 0.2s;
     }
-    
     .dropdown-item.logout:hover {
-        background: rgba(211, 47, 47, 0.1);
+        background: rgba(211, 47, 47, 0.18);
         color: #b71c1c;
-    }
-    
-    .dropdown-icon {
-        width: 18px;
-        height: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     
     @media (max-width: 768px) {
@@ -402,81 +198,6 @@
     }
 </style>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<nav class="navbar">
-    <!-- Brand Logo -->
-    <a href="dashboard.php" class="navbar-brand">
-        <div class="brand-icon">
-            <i class="fas fa-utensils"></i>
-        </div>
-        <span>Apello</span>
-    </a>
-    
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-    </button>
-    
-    <!-- Navbar Actions -->
-    <div class="navbar-actions">
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="Cari menu, pesanan, atau pelanggan...">
-            <button class="search-btn">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        
-        <!-- Notifications -->
-        <button class="notification-btn">
-            <i class="fas fa-bell"></i>
-            <span class="notification-badge">3</span>
-        </button>
-        
-        <!-- User Menu -->
-        <div class="user-menu" onclick="toggleUserDropdown()">
-            <div class="user-avatar">
-                A
-            </div>
-            <div class="user-info">
-                <span class="user-name">Admin Apello</span>
-                <span class="user-role">Administrator</span>
-            </div>
-            <i class="fas fa-chevron-down dropdown-arrow"></i>
-            
-            <!-- User Dropdown -->
-            <div class="user-dropdown">
-                <a href="profile.php" class="dropdown-item">
-                    <div class="dropdown-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span>Profile Saya</span>
-                </a>
-                <a href="settings.php" class="dropdown-item">
-                    <div class="dropdown-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <span>Pengaturan</span>
-                </a>
-                <a href="help.php" class="dropdown-item">
-                    <div class="dropdown-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <span>Bantuan</span>
-                </a>
-                <a href="logout.php" class="dropdown-item logout" onclick="return confirm('Yakin ingin keluar?')">
-                    <div class="dropdown-icon">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </div>
-                    <span>Keluar</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</nav>
-
 <script>
     function toggleSidebar() {
         const sidebar = document.querySelector('.sidebar');
@@ -488,27 +209,4 @@
             overlay.classList.toggle('active');
         }
     }
-    
-    function toggleUserDropdown() {
-        const userMenu = document.querySelector('.user-menu');
-        userMenu.classList.toggle('active');
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function closeDropdown(e) {
-            if (!userMenu.contains(e.target)) {
-                userMenu.classList.remove('active');
-                document.removeEventListener('click', closeDropdown);
-            }
-        });
-    }
-    
-    // Auto-hide search suggestions when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-box')) {
-            // Hide search suggestions
-        }
-    });
-    
-    // Smooth scroll behavior for better UX
-    document.documentElement.style.scrollBehavior = 'smooth';
 </script>
